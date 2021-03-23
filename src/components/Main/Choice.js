@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { StyledChoice } from './StyledMain';
 
@@ -15,6 +16,10 @@ function Choice({ handleUserChoice }) {
             <button className="btn-scissors" value="scissors" onClick={onClick}></button>
         </StyledChoice>
     );
+}
+
+Choice.propTypes = {
+    handleUserChoice: PropTypes.func.isRequired,
 }
 
 export default Choice;
