@@ -11,6 +11,7 @@ import datas from 'src/datas';
 function App() {
     const [userChoice, setUserChoice] = useState({});
     const [oponentChoice, setOpponentChoice] = useState({});
+    const [winner, setWinner] = useState('');
 
     const handleUserChoice = (choiceName) => {
         const choice = datas.find((data) => data.name === choiceName);
@@ -22,7 +23,25 @@ function App() {
         setOpponentChoice(choice);
     }
 
+    const handleWinner = () => {
+        if(Object.keys(userChoice).length !== 0 && Object.keys(oponentChoice).length !== 0){
+            setTimeout(() => {
+                if(userChoice.name === oponentChoice.strongAgainst){
+                    setWinner('oponent');
+                }
+                else if (userChoice.strongAgainst === oponentChoice.name){
+                    setWinner('player');
+                }
+                else if (userChoice.name === oponentChoice.name){
+                    setWinner('nobody');
+                }
+            }, 2000);
+        }
+    }
+
     useEffect(handleOponentChoice, [userChoice]);
+
+    useEffect(handleWinner, [oponentChoice]);
 
     return (
         <div>
