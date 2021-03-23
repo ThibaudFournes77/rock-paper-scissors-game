@@ -5,11 +5,10 @@ import Game from './Game';
 
 import { StyledMain } from './StyledMain';
 
-function Main() {
+function Main({ handleUserChoice }) {
     return (
         <StyledMain>
-            <Choice />
-            <Game />
+            <Choice handleUserChoice={handleUserChoice} />
         </StyledMain>
     );
 }
