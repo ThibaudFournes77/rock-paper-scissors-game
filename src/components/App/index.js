@@ -1,17 +1,22 @@
-// == Import npm
 import React from 'react';
 
-// == Import
-import reactLogo from './react-logo.svg';
-import './styles.css';
+import GlobalFonts from 'src/fonts';
+import { StyledApp } from './StyledApp';
+import Header from 'src/components/Header';
+import Main from 'src/components/Main';
+import Footer from 'src/components/Footer';
 
-// == Composant
-const App = () => (
-  <div className="app">
-    <img src={reactLogo} alt="react logo" />
-    <h1>Composant : App</h1>
-  </div>
-);
+function App() {
+    return (
+        <div>
+            <GlobalFonts />
+            <StyledApp>
+                <Header />
+                <Main />
+                <Footer />
+            </StyledApp>
+        </div>
+    );
+}
 
-// == Export
 export default App;
