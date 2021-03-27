@@ -26,7 +26,9 @@ function App() {
 
     const handleOponentChoice = () => {
         const choice = chooseRandomPlay(datas);
-        setOpponentChoice(choice);
+        setTimeout(() => {
+            setOpponentChoice(choice);
+        }, 6000);
     }
 
     const handleWinner = () => {
@@ -43,11 +45,11 @@ function App() {
                     setWinner('nobody');
                 }
                 setGamesCount(gamesCount+1);
-            }, 2000);
+            }, 4000);
         }
     }
 
-    useEffect(handleOponentChoice, [userChoice]);
+    useEffect(handleOponentChoice, []);
 
     useEffect(handleWinner, [oponentChoice]);
 
@@ -56,7 +58,7 @@ function App() {
             <GlobalFonts />
             <StyledApp>
                 <Header />
-                <Main handleUserChoice={handleUserChoice} userChoice={userChoice} oponentChoice={oponentChoice} />
+                <Main handleUserChoice={handleUserChoice} userChoice={userChoice} oponentChoice={oponentChoice} winner={winner} />
                 <Footer />
             </StyledApp>
         </div>
