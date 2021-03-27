@@ -2,15 +2,15 @@ import React from 'react';
 
 import { StyledGame } from './StyledMain';
 
-function Game() {
+function Game({ userChoice, oponentChoice }) {
     return (
         <StyledGame>
             <div className="player">
-                <span className="btn-rock is-winner"></span>
+                <span className={`btn-${userChoice.name}`}></span>
                 <p className="game-text">YOU PICKED</p>
             </div>
             <div className="oponent">
-                <span className="btn-scissors"></span>
+                <span className={`btn-${oponentChoice.name}`}></span>
                 <p className="game-text">THE HOUSE PICKED</p>
             </div>
             <div className="message">
