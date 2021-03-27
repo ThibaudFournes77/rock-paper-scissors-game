@@ -7,6 +7,7 @@ import Main from 'src/components/Main';
 import Footer from 'src/components/Footer';
 import { chooseRandomPlay } from 'src/utils';
 import datas from 'src/datas';
+import Rules from '../Rules';
 
 function App() {
     const [userChoice, setUserChoice] = useState({});
@@ -14,6 +15,7 @@ function App() {
     const [winner, setWinner] = useState('');
     const [score, setScore] = useState(0);
     const [gamesCount, setGamesCount] = useState(0);
+    const [rulesVisible, setRulesVisible] = useState(false);
 
     console.log(userChoice);
 
@@ -61,13 +63,20 @@ function App() {
 
     useEffect(handleWinner, [oponentChoice]);
 
+    const toggleRules = () => {
+        setRulesVisible(!rulesVisible);
+    }
+
     return (
         <div>
             <GlobalFonts />
             <StyledApp>
                 <Header score={score} />
                 <Main handleUserChoice={handleUserChoice} userChoice={userChoice} oponentChoice={oponentChoice} winner={winner} handleReset={handleReset} />
-                <Footer />
+                <Footer rulesVisible={rulesVisible} toggleRules={toggleRules} />
+                {rulesVisible && (
+                    <Rules toggleRules={toggleRules} />
+                )}
             </StyledApp>
         </div>
     );
