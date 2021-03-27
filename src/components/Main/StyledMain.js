@@ -6,7 +6,7 @@ import bgTriangle from 'src/assets/images/bg-triangle.svg';
 
 export const StyledMain = styled.main`
 
-    height: 50vh;
+    height: 60vh;
 
     .btn-rock{
         background: url(${rockIcon}) center  no-repeat #FFFFFF;
@@ -105,6 +105,7 @@ export const StyledGame = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 0 auto;
     height: 50vh;
 
     .player, .oponent{
@@ -174,6 +175,7 @@ export const StyledGame = styled.div`
     @media screen and (min-width: 768px){
 
         position: relative;
+        width: ${props => props.winner ? "90%" : "45%;"};
 
         .btn-paper{
             width: 28vw;
@@ -213,7 +215,7 @@ export const StyledGame = styled.div`
             height: 20vh;
             position: absolute;
             top: 45%;
-            left: 20%;
+            left: 15%;
     
             &__title{
                 font-size: 2em;

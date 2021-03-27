@@ -5,5 +5,5 @@ export const StyledApp = styled.div`
     font-family: 'Barlow';
     padding: 5%;
 
-    height: 300vh;
+    height: 100vh;
 `;

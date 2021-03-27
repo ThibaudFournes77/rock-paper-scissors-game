@@ -16,7 +16,7 @@ function Game({ userChoice, oponentChoice, winner, handleReset }) {
     }
 
     return (
-        <StyledGame>
+        <StyledGame winner={winner}>
             <div className="player">
                 <span className={`btn-${userChoice.name} ${resultPlayer}`}></span>
                 <p className="game-text">YOU PICKED</p>
