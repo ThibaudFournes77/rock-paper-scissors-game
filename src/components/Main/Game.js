@@ -2,7 +2,7 @@ import React from 'react';
 
 import { StyledGame } from './StyledMain';
 
-function Game({ userChoice, oponentChoice, winner }) {
+function Game({ userChoice, oponentChoice, winner, handleReset }) {
 
     const resultMessage = winner === 'player' ? 'YOU WIN'
                         : winner === 'oponent' ? 'YOU LOSE'
@@ -10,6 +10,10 @@ function Game({ userChoice, oponentChoice, winner }) {
 
     const resultPlayer = winner === 'player' ? 'is-winner' : '';
     const resultOponent = winner === 'oponent' ? 'is-winner' : '';
+
+    const handleClick= () => {
+        handleReset();
+    }
 
     return (
         <StyledGame>
@@ -26,7 +30,7 @@ function Game({ userChoice, oponentChoice, winner }) {
             {winner && (
             <div className="message">
                 <h2 className="message__title">{resultMessage}</h2>
-                <button className="message__button">PLAY AGAIN</button>
+                <button className="message__button" onClick={handleClick}>PLAY AGAIN</button>
             </div>
             )}
         </StyledGame>

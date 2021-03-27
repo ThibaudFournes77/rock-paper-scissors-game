@@ -49,7 +49,13 @@ function App() {
         }
     }
 
-    useEffect(handleOponentChoice, []);
+    const handleReset = () => {
+        setUserChoice({});
+        setOpponentChoice({});
+        setWinner('');
+    }
+
+    useEffect(handleOponentChoice, [userChoice]);
 
     useEffect(handleWinner, [oponentChoice]);
 
@@ -58,7 +64,7 @@ function App() {
             <GlobalFonts />
             <StyledApp>
                 <Header />
-                <Main handleUserChoice={handleUserChoice} userChoice={userChoice} oponentChoice={oponentChoice} winner={winner} />
+                <Main handleUserChoice={handleUserChoice} userChoice={userChoice} oponentChoice={oponentChoice} winner={winner} handleReset={handleReset} />
                 <Footer />
             </StyledApp>
         </div>
