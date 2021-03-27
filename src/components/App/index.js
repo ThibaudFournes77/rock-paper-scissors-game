@@ -25,10 +25,12 @@ function App() {
     }
 
     const handleOponentChoice = () => {
-        const choice = chooseRandomPlay(datas);
-        setTimeout(() => {
-            setOpponentChoice(choice);
-        }, 6000);
+        if(Object.keys(userChoice).length !== 0){
+            const choice = chooseRandomPlay(datas);
+            setTimeout(() => {
+                setOpponentChoice(choice);
+            }, 2000);
+        }
     }
 
     const handleWinner = () => {
@@ -45,7 +47,7 @@ function App() {
                     setWinner('nobody');
                 }
                 setGamesCount(gamesCount+1);
-            }, 4000);
+            }, 2000);
         }
     }
 
