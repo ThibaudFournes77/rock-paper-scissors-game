@@ -65,7 +65,7 @@ function App() {
         <div>
             <GlobalFonts />
             <StyledApp>
-                <Header />
+                <Header score={score} />
                 <Main handleUserChoice={handleUserChoice} userChoice={userChoice} oponentChoice={oponentChoice} winner={winner} handleReset={handleReset} />
                 <Footer />
             </StyledApp>
