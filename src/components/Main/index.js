@@ -6,10 +6,15 @@ import Game from './Game';
 
 import { StyledMain } from './StyledMain';
 
-function Main({ handleUserChoice }) {
+function Main({ handleUserChoice, userChoice, oponentChoice }) {
+    console.log('userChoice', Object.keys(userChoice).length);
     return (
         <StyledMain>
-            <Choice handleUserChoice={handleUserChoice} />
+            {Object.keys(userChoice).length === 0 ? (
+                <Choice handleUserChoice={handleUserChoice} />
+            ) : (
+                <Game userChoice={userChoice} oponentChoice={oponentChoice} />
+            )}
         </StyledMain>
     );
 }

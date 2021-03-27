@@ -12,10 +12,16 @@ function App() {
     const [userChoice, setUserChoice] = useState({});
     const [oponentChoice, setOpponentChoice] = useState({});
     const [winner, setWinner] = useState('');
+    const [score, setScore] = useState(0);
+    const [gamesCount, setGamesCount] = useState(0);
+
+    console.log(userChoice);
 
     const handleUserChoice = (choiceName) => {
         const choice = datas.find((data) => data.name === choiceName);
-        setUserChoice(choice);
+        setTimeout(() => {
+            setUserChoice(choice);
+        }, 2000);
     }
 
     const handleOponentChoice = () => {
@@ -31,10 +37,12 @@ function App() {
                 }
                 else if (userChoice.strongAgainst === oponentChoice.name){
                     setWinner('player');
+                    setScore(score+1);
                 }
                 else if (userChoice.name === oponentChoice.name){
                     setWinner('nobody');
                 }
+                setGamesCount(gamesCount+1);
             }, 2000);
         }
     }
@@ -48,7 +56,7 @@ function App() {
             <GlobalFonts />
             <StyledApp>
                 <Header />
-                <Main handleUserChoice={handleUserChoice} />
+                <Main handleUserChoice={handleUserChoice} userChoice={userChoice} oponentChoice={oponentChoice} />
                 <Footer />
             </StyledApp>
         </div>
